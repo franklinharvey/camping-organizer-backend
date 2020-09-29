@@ -19,10 +19,10 @@ export class ItemService {
     } else return item;
   };
 
-  public getAll = async (userId: string) => {
+  public getAll = async () => {
     return await this.repo.find({
-      where: { user: userId },
-      relations: ['user'],
+      //   where: { user: userId },
+      //   relations: ['user'],
     });
   };
 

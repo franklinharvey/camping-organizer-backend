@@ -1,5 +1,3 @@
-
-
 ## Installation
 
 You need to [install Docker](https://docs.docker.com/compose/install/)
@@ -13,6 +11,7 @@ npm install
 ## Running the app
 
 First get the DB up
+
 ```bash
 cp .env.example .env
 
@@ -41,4 +40,10 @@ npm run test:e2e
 
 # test coverage
 npm run test:cov
+```
+
+## Stopping the database
+
+```bash
+docker-compose down
 ```

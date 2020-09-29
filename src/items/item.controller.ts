@@ -16,17 +16,12 @@ import { ItemService } from './item.service';
 export class ItemController {
   constructor(@Inject(ItemService) private service: ItemService) {}
 
-  //   @Get()
-  //   async getItems(
-  //     @Param('userId', new ParseUUIDPipe()) userId: string,
-  //   ): Promise<GetItemDto[]> {
-  //     const items = await this.service.getAll(userId);
-  //     return items.map(item => ({
-  //       ...item,
-  //       createdAt: item.createdAt.toISOString(),
-  //       updatedAt: item.updatedAt.toISOString(),
-  //     }));
-  //   }
+  @Get()
+  async getItems(): // @Param('userId', new ParseUUIDPipe()) userId: string,
+  Promise<GetItemDto[]> {
+    const items = await this.service.getAll();
+    return items.map(this.service.entityToDto);
+  }
 
   @Post()
   async createItem(@Body() dto: CreateItemDto): Promise<GetItemDto> {
