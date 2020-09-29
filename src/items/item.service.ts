@@ -31,7 +31,7 @@ export class ItemService {
   };
 
   public delete = async (id: string) => {
-    return await this.repo.delete(id);
+    await this.repo.delete(id);
   };
 
   public update = async (item: DeepPartial<Item> & { id: string }) => {
