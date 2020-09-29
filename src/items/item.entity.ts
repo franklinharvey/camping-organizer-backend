@@ -9,7 +9,7 @@ export class Item {
 	@Column()
 	name: string;
 
-	@Column()
+	@Column('numeric')
 	weight: number;
 
 	@ManyToOne(
