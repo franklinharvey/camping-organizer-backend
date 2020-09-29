@@ -6,15 +6,15 @@ import { ItemModule } from './items/item.module';
 import { UserModule } from './user/user.module';
 
 @Module({
-  imports: [
-    ConfigModule.forRoot({
-      isGlobal: true,
-    }),
-    DatabaseModule,
-    ItemModule,
-    UserModule,
-  ],
-  controllers: [AppController],
-  providers: [],
+	imports: [
+		ConfigModule.forRoot({
+			isGlobal: true,
+		}),
+		DatabaseModule,
+		ItemModule,
+		UserModule,
+	],
+	controllers: [AppController],
+	providers: [],
 })
 export class AppModule {}
