@@ -16,7 +16,7 @@ export class Item {
 		_type => User,
 		user => user.items,
 	)
-	user?: User;
+	user: User;
 
 	@Column({ default: new Date() })
 	createdAt: Date;
