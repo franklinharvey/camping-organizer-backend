@@ -1,7 +1,7 @@
 import { BadRequestException, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { UserService } from 'src/user/user.service';
-import { DeepPartial, ObjectID, Repository } from 'typeorm';
+import { DeepPartial, Repository } from 'typeorm';
 import { CreateItemDto } from './dto/CreateItem.dto';
 import { GetItemDto } from './dto/getItem.dto';
 import { Item } from './item.entity';
