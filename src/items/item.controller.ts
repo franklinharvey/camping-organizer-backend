@@ -9,7 +9,7 @@ import {
 	Delete,
 } from '@nestjs/common';
 import { CreateItemDto } from './dto/CreateItem.dto';
-import { GetItemDto } from './dto/getItem.dto';
+import { GetItemDto } from './dto/GetItem.dto';
 
 import { ItemService } from './item.service';
 

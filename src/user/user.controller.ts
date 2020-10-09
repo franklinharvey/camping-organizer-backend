@@ -7,7 +7,7 @@ import {
 	Inject,
 	ParseUUIDPipe,
 } from '@nestjs/common';
-import { GetItemDto } from 'src/items/dto/getItem.dto';
+import { GetItemDto } from 'src/items/dto/GetItem.dto';
 import { CreateUserDto } from './dto/CreateUser.dto';
 import { GetUserDto } from './dto/GetUser.dto';
 

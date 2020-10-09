@@ -3,7 +3,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { UserService } from 'src/user/user.service';
 import { DeepPartial, Repository } from 'typeorm';
 import { CreateItemDto } from './dto/CreateItem.dto';
-import { GetItemDto } from './dto/getItem.dto';
+import { GetItemDto } from './dto/GetItem.dto';
 import { Item } from './item.entity';
 
 export class ItemService {
