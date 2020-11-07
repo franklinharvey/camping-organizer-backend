@@ -29,6 +29,27 @@ class ConfigService {
 	}
 
 	public getTypeOrmConfig(): TypeOrmModuleOptions {
+		if (this.getValue('DATABASE_URL', false)) {
+			return {
+				type: 'postgres',
+
+				url: this.getValue('DATABASE_URL'),
+
+				entities: [__dirname + '/../**/*.entity{.ts,.js}'],
+
+				migrationsTableName: 'migration',
+
+				migrations: [__dirname + '/../migration/*.ts'],
+
+				cli: {
+					migrationsDir: 'migration',
+				},
+
+				synchronize: false,
+
+				ssl: this.isProduction(),
+			};
+		}
 		return {
 			type: 'postgres',
 
@@ -49,8 +70,6 @@ class ConfigService {
 			},
 
 			synchronize: false,
-
-			ssl: this.isProduction(),
 		};
 	}
 }
