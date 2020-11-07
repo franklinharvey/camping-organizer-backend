@@ -22,10 +22,9 @@ export class ItemService {
 	};
 
 	public create = async (item: CreateItemDto) => {
-		if (!item.userId) throw new BadRequestException('userid is required');
-		const user = await this.userService.getOneOrFail(item.userId);
+		await this.userService.getOneOrFail(item.userId);
 
-		return await this.itemDB.save({ ...item, user });
+		return await this.itemDB.save(item);
 	};
 
 	public delete = async (id: string) => {

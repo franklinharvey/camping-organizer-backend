@@ -1,5 +1,12 @@
+import {
+	Entity,
+	Column,
+	PrimaryGeneratedColumn,
+	ManyToOne,
+	UpdateDateColumn,
+	CreateDateColumn,
+} from 'typeorm';
 import { User } from 'src/user/user.entity';
-import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
 
 @Entity()
 export class Item {
@@ -12,15 +19,19 @@ export class Item {
 	@Column('numeric')
 	weight: number;
 
+	@Column()
+	userId: string;
+
 	@ManyToOne(
 		_type => User,
 		user => user.items,
+		{ eager: false },
 	)
 	user: User;
 
-	@Column({ default: new Date() })
+	@CreateDateColumn()
 	createdAt: Date;
 
-	@Column({ default: new Date() })
+	@UpdateDateColumn()
 	updatedAt: Date;
 }

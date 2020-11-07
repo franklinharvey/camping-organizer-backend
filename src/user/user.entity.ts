@@ -1,5 +1,12 @@
 import { Item } from 'src/items/item.entity';
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import {
+	Entity,
+	Column,
+	PrimaryGeneratedColumn,
+	OneToMany,
+	CreateDateColumn,
+	UpdateDateColumn,
+} from 'typeorm';
 
 @Entity()
 export class User {
@@ -15,9 +22,9 @@ export class User {
 	)
 	items: Item[];
 
-	@Column({ default: new Date() })
+	@CreateDateColumn()
 	createdAt: Date;
 
-	@Column({ default: new Date() })
+	@UpdateDateColumn()
 	updatedAt: Date;
 }
