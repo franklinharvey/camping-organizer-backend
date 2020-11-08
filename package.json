@@ -26,7 +26,7 @@
 		"test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
 		"test:e2e": "jest --config ./test/jest-e2e.json",
 		"typeorm": "ts-node --files -r tsconfig-paths/register ./node_modules/typeorm/cli.js --config src/config/ormconfig.ts",
-		"db:migrate": "NODE_TLS_REJECT_UNAUTHORIZED='0' yarn typeorm migration:run",
+		"db:migrate": "yarn typeorm migration:run",
 		"db:migrate:create": "yarn typeorm -d src/migration migration:create",
 		"db:migrate:down": "yarn typeorm migration:revert"
 	},
