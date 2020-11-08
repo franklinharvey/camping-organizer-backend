@@ -45,8 +45,6 @@ class ConfigService {
 			},
 
 			synchronize: false,
-
-			ssl: this.isProduction(),
 		};
 	}
 }
