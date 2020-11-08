@@ -7,17 +7,18 @@
 	"license": "UNLICENSED",
 	"types": "index.d.ts",
 	"engines": {
-		"yarn": "1.x"
+		"yarn": "1.x",
+		"node": "14.x"
 	},
 	"scripts": {
-		"heroku-postbuild": "yarn db:migrate",
+		"heroku-postbuild": "yarn build && yarn db:migrate",
 		"prebuild": "rimraf dist",
 		"build": "nest build",
 		"format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
 		"start": "nest start",
 		"start:dev": "MODE=DEV nest start --watch",
 		"start:debug": "nest start --debug --watch",
-		"start:prod": "echo $(pwd) && MODE=PROD node dist/main.js",
+		"start:prod": "MODE=PROD node dist/main.js",
 		"lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
 		"test": "jest",
 		"test:watch": "jest --watch",
@@ -25,7 +26,7 @@
 		"test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
 		"test:e2e": "jest --config ./test/jest-e2e.json",
 		"typeorm": "ts-node --files -r tsconfig-paths/register ./node_modules/typeorm/cli.js --config src/config/ormconfig.ts",
-		"db:migrate": "yarn typeorm migration:run",
+		"db:migrate": "NODE_TLS_REJECT_UNAUTHORIZED='0' yarn typeorm migration:run",
 		"db:migrate:create": "yarn typeorm -d src/migration migration:create",
 		"db:migrate:down": "yarn typeorm migration:revert"
 	},
