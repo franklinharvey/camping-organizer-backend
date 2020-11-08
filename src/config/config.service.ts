@@ -11,7 +11,7 @@ class ConfigService {
 			throw new Error(`config error - missing env.${key}`);
 		}
 
-		return value;
+		return value as string;
 	}
 
 	public ensureValues(keys: string[]) {

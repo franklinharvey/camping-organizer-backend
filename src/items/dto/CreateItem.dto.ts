@@ -1,5 +1,5 @@
 export class CreateItemDto {
-	name: string;
-	weight: number;
-	userId: string;
+	name!: string;
+	weight!: number;
+	userId!: string;
 }

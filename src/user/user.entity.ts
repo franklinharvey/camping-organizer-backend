@@ -11,20 +11,20 @@ import {
 @Entity()
 export class User {
 	@PrimaryGeneratedColumn('uuid')
-	id: string;
+	id!: string;
 
 	@Column()
-	name: string;
+	name!: string;
 
 	@OneToMany(
 		_type => Item,
 		item => item.user,
 	)
-	items: Item[];
+	items!: Item[];
 
 	@CreateDateColumn()
-	createdAt: Date;
+	createdAt!: Date;
 
 	@UpdateDateColumn()
-	updatedAt: Date;
+	updatedAt!: Date;
 }

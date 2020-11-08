@@ -11,27 +11,27 @@ import { User } from 'src/user/user.entity';
 @Entity()
 export class Item {
 	@PrimaryGeneratedColumn('uuid')
-	id: string;
+	id!: string;
 
 	@Column()
-	name: string;
+	name!: string;
 
 	@Column('numeric')
-	weight: number;
+	weight!: number;
 
 	@Column()
-	userId: string;
+	userId!: string;
 
 	@ManyToOne(
 		_type => User,
 		user => user.items,
 		{ eager: false },
 	)
-	user: User;
+	user!: User;
 
 	@CreateDateColumn()
-	createdAt: Date;
+	createdAt!: Date;
 
 	@UpdateDateColumn()
-	updatedAt: Date;
+	updatedAt!: Date;
 }
