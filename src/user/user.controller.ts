@@ -23,6 +23,11 @@ export class UserController {
 		return this.service.entityToDto(user);
 	}
 
+	@Get()
+	async getAll() {
+		return await this.service.getAll();
+	}
+
 	@Get(':id')
 	async getOne(
 		@Param('id', new ParseUUIDPipe()) id: string,

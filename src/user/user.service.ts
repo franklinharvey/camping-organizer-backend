@@ -27,6 +27,15 @@ export class UserService {
 		return user;
 	};
 
+	getAll = async () => {
+		const [users, count] = await this.userDB.findAndCount();
+
+		return {
+			data: users.map(this.entityToDto),
+			count,
+		};
+	};
+
 	getItemsForUser = async (id: string) => {
 		await this.getOneOrFail(id);
 		const items = await this.itemDB.find({

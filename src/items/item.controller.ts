@@ -31,6 +31,11 @@ export class ItemController {
 		return this.service.entityToDto(item);
 	}
 
+	@Get()
+	async getAll() {
+		return this.service.getAll();
+	}
+
 	@Delete(':id')
 	async delete(@Param('id', new ParseUUIDPipe()) id: string): Promise<void> {
 		return await this.service.delete(id);

@@ -21,6 +21,15 @@ export class ItemService {
 		} else return item;
 	};
 
+	getAll = async () => {
+		const [items, count] = await this.itemDB.findAndCount();
+
+		return {
+			data: items.map(this.entityToDto),
+			count,
+		};
+	};
+
 	public create = async (item: CreateItemDto) => {
 		await this.userService.getOneOrFail(item.userId);
 
