@@ -49,6 +49,10 @@ export class UserService {
 		}));
 	};
 
+	delete = async (id: string) => {
+		await this.userDB.delete(id);
+	};
+
 	public entityToDto = (entity: User): GetUserDto => {
 		return {
 			...entity,

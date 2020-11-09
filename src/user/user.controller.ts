@@ -6,6 +6,7 @@ import {
 	Body,
 	Inject,
 	ParseUUIDPipe,
+	Delete,
 } from '@nestjs/common';
 import { GetItemDto } from 'src/items/dto/GetItem.dto';
 import { CreateUserDto } from './dto/CreateUser.dto';
@@ -41,5 +42,10 @@ export class UserController {
 		@Param('id', new ParseUUIDPipe()) id: string,
 	): Promise<GetItemDto[]> {
 		return this.service.getItemsForUser(id);
+	}
+
+	@Delete(':id')
+	async delete(@Param('id') id: string) {
+		await this.service.delete(id);
 	}
 }
