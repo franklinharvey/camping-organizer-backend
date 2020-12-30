@@ -5,7 +5,7 @@ export class AppController {
 	constructor() {}
 
 	@Get()
-	getBase() {
-		return 'Hello World';
+	getRoot() {
+		return 'Hello campers';
 	}
 }

@@ -7,8 +7,8 @@
 	"license": "UNLICENSED",
 	"types": "index.d.ts",
 	"engines": {
-		"yarn": "1.x",
-		"node": "14.x"
+        "yarn": "1.x",
+		"node": "^12.8.2"
 	},
 	"scripts": {
 		"heroku-postbuild": "yarn build && yarn db:migrate",
@@ -25,10 +25,12 @@
 		"test:cov": "jest --coverage",
 		"test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
 		"test:e2e": "jest --config ./test/jest-e2e.json",
-		"typeorm": "ts-node --files -r tsconfig-paths/register ./node_modules/typeorm/cli.js --config src/config/ormconfig.ts",
-		"db:migrate": "yarn typeorm migration:run",
-		"db:migrate:create": "yarn typeorm -d src/migration migration:create",
-		"db:migrate:down": "yarn typeorm migration:revert"
+		"typeorm": "node --require ts-node/register ./node_modules/typeorm/cli.js",
+		"migrate:create": "typeorm migration:create",
+		"migrate": "typeorm migration:run",
+		"migrate:revert": "typeorm migration:revert",
+		"db:create": "ts-node src/script/db.ts",
+		"db:drop": "ts-node src/script/db.ts drop"
 	},
 	"dependencies": {
 		"@nestjs/common": "^7.0.0",

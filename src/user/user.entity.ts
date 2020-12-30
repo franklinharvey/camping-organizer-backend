@@ -13,12 +13,13 @@ export class User {
 	@PrimaryGeneratedColumn('uuid')
 	id!: string;
 
-	@Column()
+	@Column('varchar')
 	name!: string;
 
 	@OneToMany(
 		_type => Item,
 		item => item.user,
+		{ eager: false },
 	)
 	items!: Item[];
 

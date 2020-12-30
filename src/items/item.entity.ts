@@ -13,7 +13,7 @@ export class Item {
 	@PrimaryGeneratedColumn('uuid')
 	id!: string;
 
-	@Column()
+	@Column('varchar')
 	name!: string;
 
 	@Column('numeric')
@@ -25,7 +25,9 @@ export class Item {
 	@ManyToOne(
 		_type => User,
 		user => user.items,
-		{ eager: false },
+		{
+			eager: false,
+		},
 	)
 	user!: User;
 
